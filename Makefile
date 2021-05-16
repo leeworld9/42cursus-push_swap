@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 CC = gcc 
-CFLAGS = #-O3 -Wall -Wextra -Werror
+CFLAGS = -g #-O3 -Wall -Wextra -Werror
 
 LIB_FT_NAME = ft
 LIB_FT_DIR = ./libft
