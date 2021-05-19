@@ -1,0 +1,29 @@
+stack_len(b) : 0
+a_top:2, min:1, max:5
+ra
+stack_len(b) : 0
+a_top:5, min:1, max:5
+pb
+stack_len(b) : 1
+a_top:4, min:1, max:5
+ra
+stack_len(b) : 1
+a_top:3, min:1, max:5
+ra
+stack_len(b) : 1
+a_top:1, min:1, max:5
+pb
+stack_len(b) : 2
+a_top:2, min:1, max:5
+sb
+min:1, max:5
+pa
+pa
+=========a===========
+1
+5
+2
+4
+3
+=========b===========
+[result] : 28

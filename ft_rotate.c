@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 17:10:34 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/08 04:16:58 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/14 22:55:07 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void ft_rotate(t_stack *stack)
 	t_node *node;
 	t_node *tmp;
 
-	if ((stack->top) == NULL)
+	if ((stack->top) == NULL || (stack->top)->next == NULL)
 		return ;
 	tmp = stack->top;
 	node = tmp->next;

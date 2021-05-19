@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/26 02:49:53 by dohelee           #+#    #+#             */
+/*   Updated: 2020/12/31 08:31:05 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
+
+	i = 0;
+	d = (unsigned char*)dest;
+	s = (unsigned char*)src;
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	while (i < n)
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		if (dest < src)
+		{
+			d[i] = s[i];
+			i++;
+		}
+		else
+		{
+			d[n - 1 - i] = s[n - 1 - i];
+			i++;
+		}
 	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	return (d);
 }

@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2021/01/03 07:29:02 by dohelee           #+#    #+#             */
+/*   Updated: 2021/01/03 19:54:45 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
+	if (*lst == NULL)
+		ft_lstadd_front(lst, new);
 	else
-	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
-	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+		ft_lstlast(*lst)->next = new;
 }

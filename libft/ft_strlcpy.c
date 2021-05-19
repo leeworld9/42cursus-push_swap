@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/25 22:52:54 by dohelee           #+#    #+#             */
+/*   Updated: 2020/12/26 04:18:23 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
+	size_t srclen;
+	size_t i;
+
+	if (dst == NULL && src == NULL)
+		return (0);
+	srclen = ft_strlen(src);
+	i = 0;
+	while (i + 1 < size && i < srclen)
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		dst[i] = src[i];
+		i++;
 	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	if (size > 0)
+		dst[i] = '\0';
+	return (srclen);
 }

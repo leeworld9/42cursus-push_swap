@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 21:34:34 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/12 17:27:44 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/17 17:55:59 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,10 @@ int isEmpty(t_stack *stack)
 t_node *push(t_stack *stack, int data)
 {
     t_node *now;
-    
+    //리턴 없애도 됨...
     now = (t_node *)malloc(sizeof(t_node)); //노드 생성
     if (now == NULL)
-    {
-        //push malloc 에러
         return (NULL);
-    }
     now->data = data;
     now->next = stack->top; //now의 next링크를 현재 top으로 설정   
     stack->top = now;   //스택의 맨 앞은 now로 설정

@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/31 02:38:22 by dohelee           #+#    #+#             */
+/*   Updated: 2020/12/31 08:28:50 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
+	void *s;
+
+	if ((s = malloc(nmemb * size)) == NULL)
+		return (NULL);
 	else
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		ft_bzero(s, nmemb * size);
+		return (s);
 	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
 }

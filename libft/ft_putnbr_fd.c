@@ -1,37 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2021/01/02 15:30:57 by dohelee           #+#    #+#             */
+/*   Updated: 2021/01/04 07:53:04 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+static int	ft_abs(int n)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
+	return ((n < 0) ? -n : n);
+}
+
+void		ft_putnbr_fd(int n, int fd)
+{
+	char c;
+
+	c = '0';
+	if (fd > 0)
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		if (n != 0)
+		{
+			c = ft_abs(n % 10) + '0';
+			if ((n / 10) != 0)
+				ft_putnbr_fd(n / 10, fd);
+			else
+			{
+				if (n < 0)
+					ft_putchar_fd('-', fd);
+			}
+			ft_putchar_fd(c, fd);
+		}
+		else
+			ft_putchar_fd(c, fd);
 	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	else
+		return ;
 }

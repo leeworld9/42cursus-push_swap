@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/24 17:35:40 by dohelee           #+#    #+#             */
+/*   Updated: 2020/12/31 06:58:32 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
+	size_t			i;
+
+	i = 0;
+	while (i < n && (str1[i] != '\0' || str2[i] != '\0'))
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		if (str1[i] == str2[i])
+			i++;
+		else
+			return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	return (0);
 }

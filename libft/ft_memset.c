@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/26 08:39:58 by dohelee           #+#    #+#             */
+/*   Updated: 2020/12/31 02:17:10 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
+	size_t			i;
+	unsigned char	*cpy;
+
+	cpy = (unsigned char*)s;
+	i = 0;
+	while (i < n)
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		cpy[i] = (unsigned char)c;
+		i++;
 	}
-}
-
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	return (s);
 }

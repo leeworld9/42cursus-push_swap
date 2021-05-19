@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/31 02:18:29 by dohelee           #+#    #+#             */
+/*   Updated: 2021/01/25 23:23:31 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+static char	*ft_strcpy(char *dst, char const *src)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
+	int i;
+
+	i = 0;
+	while (src[i] != '\0')
 	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
+		dst[i] = src[i];
+		i++;
 	}
+	dst[i] = '\0';
+	return (dst);
 }
 
-void push_a(t_stack *a, t_stack *b)
+char		*ft_strdup(const char *s)
 {
-	ft_push(a, b);
-	printf("pa\n");
-}
+	char	*dst;
+	size_t	len;
 
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	len = sizeof(char) * (unsigned long)ft_strlen(s) + 1;
+	dst = (char *)malloc(len);
+	if (dst != NULL)
+		ft_strcpy(dst, s);
+	else
+		return (NULL);
+	return (dst);
 }

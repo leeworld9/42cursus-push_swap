@@ -19,6 +19,14 @@ typedef struct	s_stack
     struct s_node	*top;
 }				t_stack;
 
+typedef struct  s_utils
+{
+    int min;
+    int max;
+    int sum;
+    int avg;
+}               t_utils;
+
 void	init_stack(t_stack *stack);
 int		isEmpty(t_stack *stack);
 t_node	*push(t_stack *stack, int data);

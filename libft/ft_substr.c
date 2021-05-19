@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push.c                                          :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Created: 2020/12/31 16:41:24 by dohelee           #+#    #+#             */
+/*   Updated: 2021/01/03 22:33:42 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int tmp;
-	if ((stack2->top) == NULL)
-		return ;
-	else
-	{
-		tmp = pop(stack2);
-		push(stack1, tmp);
-	}
-}
+	char *str;
 
-void push_a(t_stack *a, t_stack *b)
-{
-	ft_push(a, b);
-	printf("pa\n");
-}
-
-void push_b(t_stack *a, t_stack *b)
-{
-	ft_push(b, a);
-	printf("pb\n");
+	if (s == NULL)
+		return (NULL);
+	if (ft_strlen(s) <= start)
+		return (ft_strdup(""));
+	if ((str = (char *)malloc((len + 1) * sizeof(char))) == NULL)
+		return (NULL);
+	ft_strlcpy(str, s + start, len + 1);
+	return (str);
 }
