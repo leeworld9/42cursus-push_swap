@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 02:28:10 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/20 22:18:38 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 02:31:44 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,15 @@ bool			chk_type(char *str);
 
 void			quick_atob(t_s *a, t_s *b, int len, int depth);
 void			quick_atob_pivotchk(t_s *a, t_s *b, int len, t_q *q);
-void			quick_atob_rollback(t_s *a, t_s *b, t_q *q, int depth);
+void			quick_atob_rollback(t_s *a, t_q *q, int depth);
 
 void			quick_btoa(t_s *a, t_s *b, int len, int depth);
 void			quick_btoa_pivotchk(t_s *a, t_s *b, int len, t_q *q);
 void			quick_btoa_rollback(t_s *a, t_s *b, t_q *q);
 void			quick_btoa_last(t_s *a, t_s *b, int len);
 
-void			sort_3(t_s *a);
+void			sort_3_a(t_s *a);
+void			sort_3_b(t_s *b);
 void			sort_5(t_s *a, t_s *b);
 
 void			get_utils(t_u *u, t_s *stack, int len);

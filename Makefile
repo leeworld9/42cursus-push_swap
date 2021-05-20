@@ -6,12 +6,12 @@
 #    By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:14:13 by dohelee           #+#    #+#              #
-#    Updated: 2021/05/20 21:39:41 by dohelee          ###   ########.fr        #
+#    Updated: 2021/05/21 02:27:40 by dohelee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc 
-CFLAGS = -g #-O3 -Wall -Wextra -Werror
+CFLAGS = -O3 -Wall -Wextra -Werror
 
 LIB_FT_NAME = ft
 LIB_FT_DIR = ./libft
@@ -40,4 +40,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

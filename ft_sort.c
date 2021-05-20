@@ -6,13 +6,13 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:46 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/20 22:04:36 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 02:25:54 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_3(t_s *a)
+void	sort_3_a(t_s *a)
 {
 	t_n	*bottom;
 
@@ -41,12 +41,42 @@ void	sort_3(t_s *a)
 	}
 }
 
+void	sort_3_b(t_s *b)
+{
+	t_n	*bottom;
+
+	while (!sort_check_asc(b, 3))
+	{
+		bottom = (b->top)->next->next;
+		if ((b->top)->data > ((b->top)->next)->data)
+		{
+			if (((b->top)->next)->data > bottom->data)
+				swap_b(b);
+			else
+			{
+				if ((b->top)->data > bottom->data)
+					rotate_b(b);
+				else
+					swap_b(b);
+			}
+		}
+		else
+		{
+			if ((b->top)->data > bottom->data)
+				reverse_rotate_b(b);
+			else
+				swap_b(b);
+		}
+	}
+}
+
 void	sort_5(t_s *a, t_s *b)
 {
 	t_n	*b_top;
 	t_n	*b_bottom;
 	t_u	u;
 
+	printf("---------5\n");
 	if (sort_check_asc(a, 5))
 		return ;
 	get_utils(&u, a, 5);
@@ -63,7 +93,7 @@ void	sort_5(t_s *a, t_s *b)
 	b_bottom = b_top->next;
 	if (b_bottom->data < b_top->data)
 		swap_b(b);
-	sort_3(a);
+	sort_3_a(a);
 	push_a(a, b);
 	push_a(a, b);
 	rotate_a(a);

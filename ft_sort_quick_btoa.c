@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 22:08:45 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/20 22:08:46 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 02:32:17 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	quick_btoa(t_s *a, t_s *b, int len, int depth)
 {
 	t_q	q;
-	int	i;
 
 	if (len <= 1)
 	{
@@ -45,7 +44,8 @@ void	quick_btoa_last(t_s *a, t_s *b, int len)
 	int i;
 
 	i = 0;
-	sort_3(b);
+	if (!sort_check_asc(b, len))
+		sort_3_b(b);
 	while (i < len)
 	{
 		reverse_rotate_b(b);
@@ -61,6 +61,7 @@ void	quick_btoa_pivotchk(t_s *a, t_s *b, int len, t_q *q)
 	i = 0;
 	q->rb_cnt = 0;
 	q->pa_cnt = 0;
+	q->pa_offset = 0;
 	if (!isempty(b))
 		q->pivot = get_pivot(b, len, 'b');
 	q->pa_offset = lastpush_get_b(b, len, q->pivot);

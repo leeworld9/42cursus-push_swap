@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 04:17:47 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/21 00:22:04 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 02:28:08 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int		list_free(t_s *stack)
 {
-	t_n *tmp;
-
-	tmp = stack->top;
 	while (!isempty(stack))
 		pop(stack);
 	return (-1);
@@ -60,7 +57,7 @@ void	sort(t_s *a, t_s *b, int len)
 	if (!sort_check_asc(a, len + 1))
 	{
 		if (len == 3)
-			sort_3(a);
+			sort_3_a(a);
 		else if (len == 5)
 			sort_5(a, b);
 		else

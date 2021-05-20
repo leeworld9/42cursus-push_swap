@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 22:08:55 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/20 22:08:55 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 02:32:52 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,10 @@ int		get_half(t_u *u, t_s *stack, int len)
 
 int		get_pivot(t_s *stack, int len, char type)
 {
-	t_n	*tmp;
 	t_u	u;
-	int	i;
 	int	pivot;
 
 	get_utils(&u, stack, len);
-	i = 0;
 	if (len == 2)
 	{
 		if (type == 'a')
