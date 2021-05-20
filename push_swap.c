@@ -6,7 +6,7 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 04:17:47 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/20 23:54:18 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 00:22:04 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ int		main(int argc, char **argv)
 {
 	t_s	a;
 	t_s	b;
-	t_n	*tmp;
 	int	i;
 	int	len;
 
+	i = 0;
 	if (argc > 1)
 	{
 		while (argv[i + 1] != NULL)
