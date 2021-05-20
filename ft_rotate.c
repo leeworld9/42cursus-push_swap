@@ -6,19 +6,19 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 17:10:34 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/14 22:55:07 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/20 22:07:54 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_rotate(t_stack *stack)
+bool	ft_rotate(t_s *stack)
 {
-	t_node *node;
-	t_node *tmp;
+	t_n	*node;
+	t_n	*tmp;
 
 	if ((stack->top) == NULL || (stack->top)->next == NULL)
-		return ;
+		return (false);
 	tmp = stack->top;
 	node = tmp->next;
 	stack->top = node;
@@ -26,23 +26,32 @@ void ft_rotate(t_stack *stack)
 		node = node->next;
 	node->next = tmp;
 	tmp->next = NULL;
-}
-	
-void rotate_a(t_stack *a)
-{
-	ft_rotate(a);
-	printf("ra\n");
+	return (true);
 }
 
-void rotate_b(t_stack *b)
+void	rotate_a(t_s *a)
 {
-	ft_rotate(b);
-	printf("rb\n");
+	if (ft_rotate(a) == true)
+		printf("ra\n");
 }
 
-void rotate_ab(t_stack *a, t_stack *b)
+void	rotate_b(t_s *b)
 {
-	ft_rotate(a);
-	ft_rotate(b);
-	printf("rr\n");
+	if (ft_rotate(b) == true)
+		printf("rb\n");
+}
+
+void	rotate_ab(t_s *a, t_s *b)
+{
+	bool	as;
+	bool	bs;
+
+	as = ft_rotate(a);
+	bs = ft_rotate(b);
+	if (as == true && bs == true)
+		printf("rr\n");
+	else if (as == false && bs == true)
+		printf("rb\n");
+	else if (as == true && bs == false)
+		printf("ra\n");
 }

@@ -5,50 +5,49 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 21:34:34 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:59 by dohelee          ###   ########.fr       */
+/*   Created: 2021/05/20 22:08:26 by dohelee           #+#    #+#             */
+/*   Updated: 2021/05/20 22:09:29 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void init_stack(t_stack *stack)
+void	init_stack(t_s *stack)
 {
-    stack->top = NULL;
-}
- 
-int isEmpty(t_stack *stack)
-{
-    if (stack->top == NULL)
-        return (1); //top이 NULL이면 빈 상태
-    else
-        return (0);
+	stack->top = NULL;
 }
 
-t_node *push(t_stack *stack, int data)
+int		isempty(t_s *stack)
 {
-    t_node *now;
-    //리턴 없애도 됨...
-    now = (t_node *)malloc(sizeof(t_node)); //노드 생성
-    if (now == NULL)
-        return (NULL);
-    now->data = data;
-    now->next = stack->top; //now의 next링크를 현재 top으로 설정   
-    stack->top = now;   //스택의 맨 앞은 now로 설정
-    return (stack->top);
+	if (stack->top == NULL)
+		return (1);
+	else
+		return (0);
 }
 
-int pop(t_stack *stack)
+t_n		*push(t_s *stack, int data)
 {
-    t_node *now;
-    int ret;
-	
-    if (isEmpty(stack))
-        return (0);
-    now = stack->top;//now를 top으로 설정
-    ret = now->data;//꺼낼 값은 now의 data로 설정
- 
-    stack->top = now->next;//top을 now의 next로 설정
-    free(now);//필요없으니 메모리 해제
-    return (ret);
+	t_n	*now;
+
+	now = (t_n *)malloc(sizeof(t_n));
+	if (now == NULL)
+		return (NULL);
+	now->data = data;
+	now->next = stack->top;
+	stack->top = now;
+	return (stack->top);
+}
+
+int		pop(t_s *stack)
+{
+	t_n		*now;
+	int		ret;
+
+	if (isempty(stack))
+		return (0);
+	now = stack->top;
+	ret = now->data;
+	stack->top = now->next;
+	free(now);
+	return (ret);
 }

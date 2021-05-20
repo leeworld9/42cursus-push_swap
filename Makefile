@@ -6,7 +6,7 @@
 #    By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/12 13:14:13 by dohelee           #+#    #+#              #
-#    Updated: 2021/05/17 18:40:22 by dohelee          ###   ########.fr        #
+#    Updated: 2021/05/20 21:39:41 by dohelee          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,10 +18,9 @@ LIB_FT_DIR = ./libft
 
 NAME = push_swap
 SRCS_DIR = ./
-SRCS_NAME = ft_push.c ft_reverse_rotate.c ft_rotate.c ft_stack.c ft_swap.c push_swap.c #checker.c
+SRCS_NAME = ft_push.c ft_reverse_rotate.c ft_rotate.c ft_stack.c ft_swap.c push_swap.c ft_errchk.c ft_sort.c ft_sort_quick_atob.c ft_sort_quick_btoa.c ft_sort_utils.c ft_sort_optimize.c
 SRCS = $(addprefix $(SRCS_DIR)/, $(SRCS_NAME)) 
 OBJS = $(SRCS:.c=.o)
-
 
 $(SRCS_DIR)/%.o : $(SRCS_DIR)/%.c
 	$(CC) $(CFLAGS) -I$(SRCS_DIR) -c $^ -o $@

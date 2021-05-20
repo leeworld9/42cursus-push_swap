@@ -6,32 +6,34 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:52:02 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:55:38 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/20 22:00:04 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_push(t_stack *stack1, t_stack *stack2)
+bool	ft_push(t_s *stack1, t_s *stack2)
 {
-	int tmp;
+	int	tmp;
+
 	if ((stack2->top) == NULL)
-		return ;
+		return (false);
 	else
 	{
 		tmp = pop(stack2);
 		push(stack1, tmp);
 	}
+	return (true);
 }
 
-void push_a(t_stack *a, t_stack *b)
+void	push_a(t_s *a, t_s *b)
 {
-	ft_push(a, b);
-	printf("pa\n");
+	if (ft_push(a, b) == true)
+		printf("pa\n");
 }
 
-void push_b(t_stack *a, t_stack *b)
+void	push_b(t_s *a, t_s *b)
 {
-	ft_push(b, a);
-	printf("pb\n");
+	if (ft_push(b, a) == true)
+		printf("pb\n");
 }

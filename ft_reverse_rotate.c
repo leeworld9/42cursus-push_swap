@@ -6,26 +6,25 @@
 /*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 03:04:16 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/17 17:38:43 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/20 22:00:06 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void ft_reverse_rotate(t_stack *stack)
+bool	ft_reverse_rotate(t_s *stack)
 {
-	t_node *node;
-	t_node *tmp;
-	
-	// 이부분은 연산을 하지 않았으니까 출력은 안해야하는거 아닌가... 나중에 수정해보자.
+	t_n	*node;
+	t_n	*tmp;
+
 	if ((stack->top) == NULL || (stack->top)->next == NULL)
-		return ;
+		return (false);
 	node = stack->top;
 	while (node->next != NULL)
 	{
 		tmp = node->next;
 		if (tmp->next == NULL)
-			break;
+			break ;
 		else
 			node = node->next;
 	}
@@ -33,23 +32,32 @@ void ft_reverse_rotate(t_stack *stack)
 	node->next = NULL;
 	tmp->next = stack->top;
 	stack->top = tmp;
+	return (true);
 }
 
-void reverse_rotate_a(t_stack *a)
+void	reverse_rotate_a(t_s *a)
 {
-	ft_reverse_rotate(a);
-	printf("rra\n");
+	if (ft_reverse_rotate(a) == true)
+		printf("rra\n");
 }
 
-void reverse_rotate_b(t_stack *b)
+void	reverse_rotate_b(t_s *b)
 {
-	ft_reverse_rotate(b);
-	printf("rrb\n");
+	if (ft_reverse_rotate(b) == true)
+		printf("rrb\n");
 }
 
-void reverse_rotate_ab(t_stack *a, t_stack *b)
+void	reverse_rotate_ab(t_s *a, t_s *b)
 {
-	ft_reverse_rotate(a);
-	ft_reverse_rotate(b);
-	printf("rrr\n");
+	bool	as;
+	bool	bs;
+
+	as = ft_reverse_rotate(a);
+	bs = ft_reverse_rotate(b);
+	if (as == true && bs == true)
+		printf("rrr\n");
+	else if (as == false && bs == true)
+		printf("rrb\n");
+	else if (as == true && bs == false)
+		printf("rra\n");
 }
