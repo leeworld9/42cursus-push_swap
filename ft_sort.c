@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dohelee <dohelee@student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: dohelee <dohelee@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 20:15:46 by dohelee           #+#    #+#             */
-/*   Updated: 2021/05/21 02:25:54 by dohelee          ###   ########.fr       */
+/*   Updated: 2021/05/21 11:40:51 by dohelee          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ void	sort_5(t_s *a, t_s *b)
 	t_n	*b_bottom;
 	t_u	u;
 
-	printf("---------5\n");
 	if (sort_check_asc(a, 5))
 		return ;
 	get_utils(&u, a, 5);
