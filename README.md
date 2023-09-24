@@ -2,7 +2,7 @@
 # push_swap
 - push_swap : **42cursus (2 Circle)**
    - Status : Finished
-   - Completed date : 2021/05/21
+   - Completed Date : 2021/05/21
    - Evaluation : <span style="color: #008000">Success</sapn>
    - Score : <span style="color: #008000">93%</sapn>
 
